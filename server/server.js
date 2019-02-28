@@ -26,26 +26,18 @@ app.get('/api/product/:id', (req, res) => {
   });
 });
 
-// app.put('/product/:id', (req, res) => {
-//   const idToSearch = req.params.id;
-//   addToCart(idToSearch, (err, data) => {
-//     if (err) {
-//       res.status(400).send();
-//       return;
-//     }
-//     res.status(200).send(data);
-//   });
-// });
+app.post('/api/cart/:userId', (req, res) => {
+  // wait to revieve the event of the click to know what button what pushed and where to post the info.
+});
 
-// app.get('/addtocart', (req, res) => {
-//   itemsInCart((err, data) => {
-//     if (err) {
-//       res.status(400).send();
-//       return;
-//     }
-//     res.status(200).send(data);
-//   });
-// });
+app.put('/api/cart/:productId', (req, res) => {
+  // we will be updating the quantity of the product in the db.
+});
+
+app.delete('/api/cart/:userId', (req, res) => {
+  // will allow for someone to delete an item out of their cart.
+});
+
 
 app.get('*', (req, res) => {
   res.sendFile(`/client/dist/index.html`, {'root': `${__dirname}/../`});
