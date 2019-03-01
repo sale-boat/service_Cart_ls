@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const faker = require('faker');
 
 function getRandomName() {
   return Math.floor(Math.random() * 300);
@@ -33,14 +34,13 @@ function writeTenMilliontimes(encoding, callback) {
   let writer = fs.createWriteStream(__dirname + '/writeMe.txt');
   let i = 10000000;
   function write () {
-  //let data = `${firstName[getRandomName()]} ${lastName[getRandomName()]}, this is a random address, [], [], []\n`;
     let ok = true;
     do {
       i--;
       if(i === 0) {
-        writer.write(`${firstName[getRandomName()]} ${lastName[getRandomName()]}, this is a random address, [], [], []\n`, encoding, callback);
+        writer.write(`${faker.name.findName()}, ${faker.address.city()}, [], [], []\n`, encoding, callback);
       } else {
-        ok = writer.write(`${firstName[getRandomName()]} ${lastName[getRandomName()]}, this is a random address, [], [], []\n`, encoding);
+        ok = writer.write(`${faker.name.findName()}, ${faker.address.city()} ${faker.address.zipCode()}, [], [], []\n`, encoding);
       }
     } while (i > 0 && ok);
     if (i > 0) {
