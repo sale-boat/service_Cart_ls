@@ -26,14 +26,41 @@
 | `/api/cart/:userId`        | POST    | Add a review              |
 | `/api/cart/:productId`     | PUT     | Update a review           |
 | `/api/cart/:userId`        | DELETE  | Delete a review           |
+## GET Request
 
+> Endpoint: /api/product/:id
+
+**URL Params** : productId
+
+**Description of use**
+Retrieve product details for page rendering.
+
+```js
+app.get('/api/product/:id', (req, res) => {
+  //response will send back data based off of the desired product.
+})
+```
+## Expected Response
+```js
+{
+  uniqueID: Number,
+  price: Number,
+  quantity: Number,
+  isPrime: String,
+  inCart: Number,
+  cartQuantity: Number,
+  imageURL: String,
+}
+```
 
 ## POST Request
 > Endpoint: /api/cart/:userId
 
 **URL Params** :userid
 
+**Description of use**
 ADD a product to either review or list based on the current user.
+
 ```js
 app.post('/api/cart/:userId', (req, res) => {
   // wait to revieve the event of the click to know what button what pushed and where to post the info.
@@ -67,12 +94,14 @@ Success(200)
 console.log(Data was succesfully added to List)
 ```
 ## Data Schema for List
+```js
 {
   id: Number
   list_type: Number
   product_id: Number
   user_id: Number
 }
+```
 
 ## PUT Request
 ```js
@@ -84,6 +113,7 @@ app.put('/api/cart/:productId', (req, res) => {
 
 **URL Params** :productid
 
+**Description of use**
 Update product quantity.
 
 
@@ -95,7 +125,7 @@ Success(200)
 
 console.log(Product quantity was succesfully updated)
 ```
-## Data Schema for Cart
+## Data Schema for Product
 ```js
 {
   uniqueID: Number,
@@ -118,7 +148,8 @@ app.delete('/api/cart/:userId', (req, res) => {
 
 **URL Params** :userid
 
-Remove a product out of your cart.
+**Description of use**
+Remove a product out of your cart or list.
 
 ## Expected Response
 
@@ -163,7 +194,6 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - Node 6.13.0
 - etc
 
-## Development
 
 ### Installing Dependencies
 
