@@ -27,19 +27,20 @@ const lastName = [
   'Romero', 'Montgomery', 'Lambert', 'Mora', 'Neal', 'Pena', 'Braun', 'Hicks', 'Jimenez', 'Le', 'Park', 'Stafford', 'Ward', 'House', 'Kirby', 'Grant', 'Maxwell', 'Kidd', 'Wall', 'Ware', 'Butler', 'Acevedo', 'Henry', 'Heath', 'Lozano', 'Lawrence', 'Walter', 'Ayers', 'Douglas', 'Garrison', 'Walton', 'Jefferson', 'Odonnell', 'Bowen', 'Patton', 'Fowler', 'Avery', 'Cisneros', 'Estrada', 'Graves', 'Foley', 'Meadows', 'Drake', 'Friedman', 'Irwin', 'Hodges', 'Barrett', 'York', 'Buchanan', 'Booker', 'Pugh', 'Harmon', 'Stanton', 'Delgado', 'Walker', 'Duarte', 'Garrett', 'Gomez', 'Cooley', 'Cervantes', 'Evans', 'Peterson', 'Nixon', 'Bullock', 'Zhang', 'Gaines', 'Wagner', 'Holden', 'Burke','Barton','Hobbs','Gutierrez','Stephenson','Rivas','Silva','Jordan','Beltran','Mcintyre', 'Glenn', 'Ho', 'Moran', 'Kerr', 'Haney', 'Blair', 'Sherman', 'Rogers', 'Strickland', 'Norris', 'Johnston', 'Navarro', 'Garcia', 'Wright', 'Benitez', 'Mcclain', 'Glover', 'Zimmerman', 'Fuentes', 'Fischer', 'Ayala', 'Palmer', 'Mcmahon', 'Rowland', 'Dominguez', 'Benjamin', 'Benton', 'Clay', 'Carey', 'Wiggins', 'Barry', 'Kane', 'Sharp', 'Whitaker', 'Davis', 'Sosa', 'Terry', 'Robbins', 'Guerrero', 'Morrow', 'Humphrey', 'Marsh', 'Miles', 'Carr', 'Villanueva', 'Larson', 'Gill', 'Gibbs', 'Ibarra', 'Morales', 'Lin', 'Barr', 'Bean', 'Carrillo', 'Compton', 'Rojas', 'Hood', 'Cooper', 'Burnett', 'Lopez', 'Pacheco', 'Robles', 'Kaiser', 'Wade', 'Daugherty', 'Pope', 'Hansen', 'Adams', 'Crane', 'Murillo', 'Gregory', 'Hubbard', 'Huynh', 'Ashley', 'Moyer', 'Dickerson', 'Camacho', 'White', 'Watts', 'Bush', 'Mcdowell', 'Holmes', 'Watkins', 'Browning', 'Gardner', 'Holloway', 'Rowe', 'Velazquez', 'Mathis', 'Wu', 'Carson', 'Owen', 'Ortega', 'Martin', 'Tate', 'Hughes', 'Welch', 'Monroe', 'Paul', 'Jacobs', 'Barker', 'Dunn', 'Whitney', 'Krueger', 'Hayes', 'Mckinney', 'Page', 'Nolan', 'Reilly', 'Fleming', 'Ryan', 'Mata', 'Aguirre', 'Gould','Mathews', 'Cox', 'Clarke', 'Guzman', 'Boyer', 'Montes', 'Holder', 'Mack', 'Miller', 'Rose', 'Yang', 'Hardy', 'Logan', 'Stewart', 'Bell', 'Merritt', 'David', 'Velez', 'Garza', 'Jarvis', 'Whitehead', 'Hutchinson', 'Landry',
 ]
 
-let data = `${firstName[getRandomName()]} ${lastName[getRandomName()]}, this is a random address, [], [], []\n`;
-let writer = fs.createWriteStream(__dirname + '/writeMe.txt');
+
 let encoding = 'utf8';
-function writeTenMilliontimes(writer, data, encoding, callback) {
+function writeTenMilliontimes(encoding, callback) {
+  let writer = fs.createWriteStream(__dirname + '/writeMe.txt');
   let i = 10000000;
   function write () {
+  //let data = `${firstName[getRandomName()]} ${lastName[getRandomName()]}, this is a random address, [], [], []\n`;
     let ok = true;
     do {
       i--;
       if(i === 0) {
-        writer.write(data, encoding, callback);
+        writer.write(`${firstName[getRandomName()]} ${lastName[getRandomName()]}, this is a random address, [], [], []\n`, encoding, callback);
       } else {
-        ok = writer.write(data, encoding);
+        ok = writer.write(`${firstName[getRandomName()]} ${lastName[getRandomName()]}, this is a random address, [], [], []\n`, encoding);
       }
     } while (i > 0 && ok);
     if (i > 0) {
@@ -49,7 +50,7 @@ function writeTenMilliontimes(writer, data, encoding, callback) {
   write();
 }
 
-writeTenMilliontimes(writer, data, encoding, function() {
+writeTenMilliontimes(encoding, function() {
   if(Error) {
     console.log('error')
   } else {
