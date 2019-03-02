@@ -4,7 +4,7 @@ const faker = require('faker');
 
 const encoding = 'utf8';
 function writeCSV(number, encoding, callback) {
-  const writer = fs.createWriteStream(__dirname + '/mongoCSV.txt');
+  const writer = fs.createWriteStream(__dirname + '/test2.csv');
   let i = 0;
   function write() {
     let ok = true;
@@ -25,7 +25,7 @@ function writeCSV(number, encoding, callback) {
   write();
 }
 
-const desiredNumberOfRecords = 100;
+const desiredNumberOfRecords = 10;
 const writeCSVInsert = desiredNumberOfRecords + 1;
 
 
