@@ -16,7 +16,19 @@
 1. [Development](#development)
 
 
+## Implementing CSV file for database
 
+type:
+```js
+'npm run CSV generator'
+```
+into the command line on service_cart to generate CSV file,
+
+IMPORTANT!
+file is currently set up to generate 10 million files into CSV.txt
+
+to change hoe many users you want to generate for your database, make you rway to line
+28 in seeding.js and adjust the 10000000 input to your desired user amount.
 
 ### CRUD API Routing
 

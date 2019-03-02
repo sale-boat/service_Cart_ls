@@ -3,8 +3,8 @@ const path = require('path');
 const faker = require('faker');
 
 const encoding = 'utf8';
-function writeTenMilliontimes(number, encoding, callback) {
-  const writer = fs.createWriteStream(__dirname + '/writeMe.txt');
+function writeCSV(number, encoding, callback) {
+  const writer = fs.createWriteStream(__dirname + '/CSV.txt');
   let i = 0;
   function write() {
     let ok = true;
@@ -25,7 +25,7 @@ function writeTenMilliontimes(number, encoding, callback) {
   write();
 }
 
-writeTenMilliontimes(10000000, encoding, function () {
+writeCSV(10000000, encoding, function () {
   if(Error) {
     console.log('error')
   } else {
