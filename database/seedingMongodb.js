@@ -10,27 +10,27 @@ function writeCSV(number, encoding, callback) {
     let ok = true;
     do {
       i++;
-      if (i === number + 1) {
-        writer.write(`${faker.name.findName()}, ${faker.address.city()} ${faker.address.zipCode()}, [], [], []\n`, encoding, callback);
+      if (i === number) {
+        writer.write(`${i - 1}, ${faker.name.findName()}, [${faker.address.city()} ${faker.address.zipCode()}], [], true, [], true, [], true, []\n`, encoding, callback);
       } else if (i === 1) {
-        ok = writer.write(`id, name, address, wishList, shoppingList, cart\n`, encoding);
+        ok = writer.write(`id, name, addresses, wishList, wishListPrivacy, shoppingList, shoppingListPrivacy, ideaList, ideaListPrivacy, cart\n`, encoding);
       } else {
-        ok = writer.write(`${i - 1}, ${faker.name.findName()}, ${faker.address.city()} ${faker.address.zipCode()}, [], [], []\n`, encoding);
+        ok = writer.write(`${i - 1}, ${faker.name.findName()}, [${faker.address.city()} ${faker.address.zipCode()}], [], true, [], true, [], true, []\n`, encoding);
       }
     } while (i < number && ok);
-    if (i < number) {
+    if (i <= number) {
       writer.once('drain', write);
     }
   }
   write();
 }
 
-const desiredNumberOfRecords = 10;
+const desiredNumberOfRecords = 30000000;
 const writeCSVInsert = desiredNumberOfRecords + 1;
 
 
-writeCSV(writeCSVInsert, encoding, function () {
-  if(Error) {
+writeCSV(writeCSVInsert, encoding, function (error) {
+  if(error) {
     console.log('error')
   } else {
     console.log('success')
