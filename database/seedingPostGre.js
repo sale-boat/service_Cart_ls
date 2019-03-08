@@ -11,9 +11,9 @@ function writeCSV(number, encoding, callback) {
     do {
       i++;
       if (i === number) {
-        writer.write(`${faker.name.firstName()} ${faker.name.lastName()}, ${faker.address.city()} ${faker.address.zipCode()}\n`, encoding, callback);
+        writer.write(`${i}, ${faker.name.firstName()} ${faker.name.lastName()}, {${faker.address.city()} ${faker.address.zipCode()}}, false, false, false\n`, encoding, callback);
       } else {
-        ok = writer.write(`${faker.name.firstName()} ${faker.name.lastName()}, ${faker.address.city()} ${faker.address.zipCode()}\n`, encoding);
+        ok = writer.write(`${i}, ${faker.name.firstName()} ${faker.name.lastName()}, {${faker.address.city()} ${faker.address.zipCode()}}, false, false, false\n`, encoding);
       }
     } while (i < number && ok);
     if (i < number) {
@@ -23,8 +23,8 @@ function writeCSV(number, encoding, callback) {
   write();
 }
 
-writeCSV(10000000, encoding, function () {
-  if(Error) {
+writeCSV(30000000, encoding, function (error) {
+  if(error) {
     console.log('error')
   } else {
     console.log('success')

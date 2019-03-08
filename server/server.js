@@ -27,15 +27,22 @@ app.get('/api/product/:id', (req, res) => {
 });
 
 app.post('/api/cart/:userId', (req, res) => {
-  // wait to revieve the event of the click to know what button what pushed and where to post the info.
+  // create a new user for the website
+  // = insert into postgres.
 });
 
 app.put('/api/cart/:productId', (req, res) => {
   // we will be updating the quantity of the product in the db.
+  // update into cart
+  // update into a list
+  // updating delivery address
+  // update an address.
+  // update privacy settings.
 });
 
 app.delete('/api/cart/:userId', (req, res) => {
   // will allow for someone to delete an item out of their cart.
+  // remove user
 });
 
 
