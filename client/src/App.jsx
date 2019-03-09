@@ -40,7 +40,8 @@ class App extends React.Component {
     const productID = Number(urlArray[urlArray.length - 1]);
     axios.get(`/api/product/${productID}`)
       .then((res) => {
-        this.setState({ price: res.data[0].price });
+        console.log(res.data.rows[0].price);
+          this.setState({ price: res.data.rows[0].price });
       })
       .catch((err) => {
         console.log(err);
@@ -60,7 +61,6 @@ class App extends React.Component {
       <div className={app.container} style={style}>
         <div className={app.priceChris}>
           {' '}
-          $
           { price }
           {' '}
         </div>

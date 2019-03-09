@@ -10,11 +10,13 @@ const pool = new Pool({
 
 
 const getProduct = function (id, callback) {
-  Product.find({ uniqueID: id }, (err, data) => {
-    if (err) {
-      return err;
+  const queryStr = `select * from Products where productid = ${id};`;
+  pool.query(queryStr, (err, product) => {
+    if(err) {
+      callback(err);
+      return;
     }
-    callback(null, data);
+    callback(null, product);
   });
 };
 
