@@ -32,4 +32,3 @@ writeCSV(1000000, encoding, function (error) {
 })
 
 
-COPY Products(productid, price, quantity) from '/Users/lukassinger/Desktop/service_cart_ls/database/postGreProducts.csv' DELIMITER ',' CSV HEADER;
