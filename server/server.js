@@ -1,4 +1,5 @@
 // SERVER FILE
+const newrelic = require('newrelic')
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -18,8 +19,9 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(`${__dirname}/../client/dist`));
 
 
-app.get('/api/product/:id', (req, res) => {
-  const idToSearch = req.params.id;
+app.get('/api/:productid/:userid', (req, res) => {
+  const idToSearch = req.params.productid;
+  console.log(req.params)
   db.getProduct(idToSearch, (err, data) => {
     if (err) {
       res.status(400).send();
@@ -28,8 +30,9 @@ app.get('/api/product/:id', (req, res) => {
     res.status(200).send(data);
   });
 });
-app.get('/api/:userId', (req, res) => {
+app.get('/api/:productid/:userId', (req, res) => {
   const userId = req.params.userId;
+  console.log(req.params)
   db.getUser(userId, (err, user) => {
     if (err) {
       res.status(400).send();
