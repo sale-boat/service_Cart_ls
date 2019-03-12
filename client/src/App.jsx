@@ -37,8 +37,9 @@ class App extends React.Component {
 
   getData() {
     const urlArray = document.URL.split('/');
-    const productID = Number(urlArray[urlArray.length - 1]);
-    axios.get(`/api/product/${productID}`)
+    const productID = Number(urlArray[urlArray.length - 2]);
+    const userId = Number(urlArray[urlArray.lenght - 1]);
+    axios.get(`/api/${productID}/${userId}`)
       .then((res) => {
         console.log(res.data.rows[0].price);
           this.setState({ price: res.data.rows[0].price });
