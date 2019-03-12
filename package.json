@@ -9,8 +9,8 @@
   },
   "scripts": {
     "test": "jest",
-    "generate": "node ./database/helpers/generatePostGreProducts.js && node ./database/helpers/generatePostGreUsers.js",
-    "createdb": "createdb service_cart",
+    "generate": "nodejs ./database/helpers/generatePostGreProducts.js && nodejs ./database/helpers/generatePostGreUsers.js",
+    "createdb": " nodejs createdb service_cart",
     "seeddb": "psql -d test_seed -a -f ./users.sql ",
     "start": "nodemon server/server.js",
     "react-dev": "webpack -d --watch",
