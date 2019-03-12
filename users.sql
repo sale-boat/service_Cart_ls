@@ -30,9 +30,9 @@ CREATE TABLE IF NOT EXISTS Products (
 );
 
 
- COPY Users(userid, name, addresses, shopping_list_privacy, wish_list_privacy, idea_list_privacy) from '/Users/lukassinger/Desktop/service_cart_ls/database/helpers/postGre.csv' DELIMITER ',' CSV HEADER;
+ COPY Users(userid, name, addresses, shopping_list_privacy, wish_list_privacy, idea_list_privacy) from '/home/ubuntu/service_cart_ls/database/helpers/postGre.csv' DELIMITER ',' CSV HEADER;
 
-COPY Products(productid, price, quantity) from '/Users/lukassinger/Desktop/service_cart_ls/database/helpers/postGreProducts.csv' DELIMITER ',' CSV HEADER;
+COPY Products(productid, price, quantity) from '/home/ubuntu/service_cart_ls/database/helpers/postGreProducts.csv' DELIMITER ',' CSV HEADER;
 
 CREATE INDEX IF NONE EXISTS idx_Users_userid ON Users(userid);
 
