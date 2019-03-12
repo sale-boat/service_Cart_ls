@@ -2,11 +2,10 @@ const {
   Pool,
 } = require('pg');
 
-const pool = new Pool({
-  host: 'localhost',
-  database: 'service_cart',
-  port: 5432,
-});
+
+const config = require('./config.example.js');
+
+const pool = new Pool({config});
 
 
 const getProduct = function (id, callback) {
