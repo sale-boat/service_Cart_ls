@@ -1,9 +1,9 @@
-DROP DATABASE IF EXISTS test_seed;
+DROP DATABASE IF EXISTS service_cart;
 
-CREATE DATABASE test_seed;
+CREATE DATABASE service_cart;
 
 -- Connects the to products database
-\c test_seed;
+\c service_cart;
 
 -- Provides total time it took to execute query and fetch results back to client
 
