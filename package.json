@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "jest",
-    "generate": "nodejs ./database/helpers/generatePostGreProducts.js && nodejs ./database/helpers/generatePostGreUsers.js",
+    "generate": "nodejs ./database/helpers/generatePostGreUsers.js",
     "createdb": " nodejs createdb service_cart",
     "seeddb": "psql U - postgres -d service_cart -a -f ./users.sql ",
     "start": "nodemon server/server.js",
