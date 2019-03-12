@@ -11,7 +11,7 @@
     "test": "jest",
     "generate": "nodejs ./database/helpers/generatePostGreUsers.js",
     "createdb": " nodejs createdb service_cart",
-    "seeddb": "psql U - postgres -d service_cart -a -f ./users.sql ",
+    "seeddb": "psql su - postgres -d service_cart -a -f ./users.sql ",
     "start": "nodejs server/server.js",
     "react-dev": "webpack -d --watch",
     "postinstall": " webpack -d"
