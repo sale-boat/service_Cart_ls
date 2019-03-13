@@ -5,19 +5,19 @@ const {
 
 const config = require('./config.example.js');
 
-// const pool = new Pool({
-//   user: 'postgres',
-//   password: 'postgres',
-//   host: 'localhost:3002',
-//   database: 'service_cart',
-//   port: 5432,
-// });
 const pool = new Pool({
-  host: 'localhost',
+  user: 'postgres',
+  password: 'postgres',
+  host: 'ec2-34-239-109-138.compute-1.amazonaws.com',
   database: 'service_cart',
   port: 5432,
 });
-//ec2-34-239-109-138.compute-1.amazonaws.com
+// const pool = new Pool({
+//   host: 'localhost',
+//   database: 'service_cart',
+//   port: 5432,
+// });
+
 
 
 const getProduct = function (id, callback) {
