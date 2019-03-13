@@ -23,7 +23,7 @@ function writeCSV(number, encoding, callback) {
   write();
 }
 
-writeCSV(30000000, encoding, function (error) {
+writeCSV(3000, encoding, function (error) {
   if(error) {
     console.log('error')
   } else {
