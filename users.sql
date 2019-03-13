@@ -34,8 +34,8 @@ CREATE TABLE IF NOT EXISTS Products (
 
 COPY Products(productid, price, quantity) from '/home/ubuntu/service_cart_ls/database/helpers/postGreProducts.csv' DELIMITER ',' CSV HEADER;
 
-CREATE INDEX IF NONE EXISTS idx_Users_userid ON Users(userid);
+CREATE INDEX idx_Users_userid ON Users(userid);
 
-CREATE INDEX IF NONE EXISTS idx_Users_addresses ON Users USING GIN(addresses);
+CREATE INDEX idx_Users_addresses ON Users USING GIN(addresses);
 
 CREATE INDEX IF NONE EXISTS idx_product_id ON Products(productid);
