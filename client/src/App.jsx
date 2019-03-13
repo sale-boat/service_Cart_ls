@@ -13,36 +13,42 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // price: '',
+       price: '123.34',
     };
     this.child = React.createRef();
     this.clickOutside = this.clickOutside.bind(this);
     this.getData = this.getData.bind(this);
   }
-
-
   componentDidMount() {
-    // const urlArray = document.URL.split('/');
-    // const productID = Number(urlArray[urlArray.length - 1]);
-    // axios.get(`/api/product/${productID}`)
-    //   .then((res) => {
-    //     this.setState({ price: res.data[0].price });
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
+    console.log('This is luke')
     this.getData();
   }
+
+
+  // componentDidMount() {
+  //   // const urlArray = document.URL.split('/');
+  //   // const productID = Number(urlArray[urlArray.length - 1]);
+  //   // axios.get(`/api/product/${productID}`)
+  //   //   .then((res) => {
+  //   //     this.setState({ price: res.data[0].price });
+  //   //   })
+  //   //   .catch((err) => {
+  //   //     console.log(err);
+  //   //   });
+  //   console.log("I came from componendid mount")
+  //   this.getData();
+  // }
 
   getData() {
     const urlArray = document.URL.split('/');
     const productID = Number(urlArray[urlArray.length - 2]);
     const userId = Number(urlArray[urlArray.lenght - 1]);
+    console.log(urlArray, productID, userId);
     axios.get(`/${productID}/${userId}`)
       .then((res) => {
-        console.log(res.data.rows[0].price);
+        console.log(typeof(res.data.rows[0].price));
           this.setState({ price: res.data.rows[0].price });
+          console.log(this.state)
       })
       .catch((err) => {
         console.log(err);
