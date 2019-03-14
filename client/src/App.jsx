@@ -13,7 +13,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-       price: '123.34',
+       price: '',
     };
     this.child = React.createRef();
     this.clickOutside = this.clickOutside.bind(this);
@@ -44,7 +44,7 @@ class App extends React.Component {
     const productID = Number(urlArray[urlArray.length - 2]);
     const userId = Number(urlArray[urlArray.lenght - 1]);
     console.log(urlArray, productID, userId);
-    axios.get(`/${productID}/${userId}`)
+    axios.get(`/api/${productID}/${userId}`)
       .then((res) => {
         console.log(typeof(res.data.rows[0].price));
           this.setState({ price: res.data.rows[0].price });
