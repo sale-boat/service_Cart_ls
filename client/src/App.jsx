@@ -42,7 +42,7 @@ class App extends React.Component {
   getData() {
     const urlArray = document.URL.split('/');
     const productID = Number(urlArray[urlArray.length - 2]);
-    const userId = Number(urlArray[urlArray.lenght - 1]);
+    const userId = Number(urlArray[urlArray.length - 1]);
     console.log(urlArray, productID, userId);
     axios.get(`/api/${productID}/${userId}`)
       .then((res) => {
