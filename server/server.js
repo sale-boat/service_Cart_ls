@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(`${__dirname}/../client/dist`));
 
 
-app.get('/api/:productid/:userid', (req, res) => {
+app.get('/api/:productid/', (req, res) => {
   const idToSearch = req.params.productid;
   console.log(req.params)
   db.getProduct(idToSearch, (err, data) => {
