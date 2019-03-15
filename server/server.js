@@ -21,7 +21,6 @@ app.use(express.static(`${__dirname}/../client/dist`));
 
 app.get('/api/:productid/', (req, res) => {
   const idToSearch = req.params.productid;
-  console.log(req.params)
   db.getProduct(idToSearch, (err, data) => {
     if (err) {
       console.log('am I having an error?')
@@ -34,7 +33,6 @@ app.get('/api/:productid/', (req, res) => {
 });
 app.get('/api/users/:productid/:userId', (req, res) => {
   const userId = req.params.userId;
-  console.log(req.params)
   db.getUser(userId, (err, user) => {
     if (err) {
       res.status(400).send();
