@@ -27,7 +27,6 @@ app.get('/api/:productid/', (req, res) => {
       res.status(400).send();
       return;
     }
-    console.log('we updated')
     res.status(200).send(data.rows);
   });
 });
