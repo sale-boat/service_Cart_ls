@@ -28,7 +28,8 @@ app.get('/api/:productid/', (req, res) => {
       res.status(400).send();
       return;
     }
-    res.status(200).send(data);
+    console.log('we updated')
+    res.status(200).send(data.rows);
   });
 });
 app.get('/api/users/:productid/:userId', (req, res) => {
