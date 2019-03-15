@@ -20,31 +20,15 @@ class App extends React.Component {
     this.getData = this.getData.bind(this);
   }
   componentDidMount() {
-    console.log('This is luke')
     this.getData();
   }
 
-
-  // componentDidMount() {
-  //   // const urlArray = document.URL.split('/');
-  //   // const productID = Number(urlArray[urlArray.length - 1]);
-  //   // axios.get(`/api/product/${productID}`)
-  //   //   .then((res) => {
-  //   //     this.setState({ price: res.data[0].price });
-  //   //   })
-  //   //   .catch((err) => {
-  //   //     console.log(err);
-  //   //   });
-  //   console.log("I came from componendid mount")
-  //   this.getData();
-  // }
-
   getData() {
     const urlArray = document.URL.split('/');
-    const productID = Number(urlArray[urlArray.length - 2]);
-    const userId = Number(urlArray[urlArray.length - 1]);
-    console.log(urlArray, productID, userId);
-    axios.get(`/api/${productID}/${userId}`)
+    const productID = Number(urlArray[urlArray.length - 1]);
+    // const userId = Number(urlArray[urlArray.length - 1]);
+    console.log(urlArray, productID);
+    axios.get(`/api/${productID}/`)
       .then((res) => {
         console.log(typeof(res.data.rows[0].price));
           this.setState({ price: res.data.rows[0].price });
