@@ -27,12 +27,11 @@ class App extends React.Component {
     const urlArray = document.URL.split('/');
     const productID = Number(urlArray[urlArray.length - 1]);
     // const userId = Number(urlArray[urlArray.length - 1]);
-    console.log(urlArray, productID);
+    // console.log(urlArray, productID);
     axios.get(`/api/${productID}/`)
       .then((res) => {
-        console.log(typeof(res.data.rows[0].price));
+        // console.log(typeof(res.data.rows[0].price));
           this.setState({ price: res.data.rows[0].price });
-          console.log(this.state)
       })
       .catch((err) => {
         console.log(err);
