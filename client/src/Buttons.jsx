@@ -13,8 +13,8 @@ class Buttons extends React.Component {
   componentDidMount() {
     const { quantity } = this.state;
     const urlArray = document.URL.split('/');
-    const productID = Number(urlArray[urlArray.length - 1]);
-    // const userId = Number(urlArray[urlArray.lenght - 1]);
+    const productID = Number(urlArray[3]);
+    // const userId = Number(urlArray[4]);
     axios.get(`/api/${productID}/`)
       .then((res) => {
         if (res.data[0].quantity < 30) {
